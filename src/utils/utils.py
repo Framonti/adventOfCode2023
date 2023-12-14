@@ -8,6 +8,11 @@ def read_input_removing_new_line(path):
     return input_data_no_new_lines
 
 
+def read_input_remove_incipit(path, separator):
+    raw_input_by_line = read_input_removing_new_line(path)
+    return [raw_input.split(separator)[1] for raw_input in raw_input_by_line]
+
+
 def split_list_into_chunks(list_to_split, chuck_size):
     it = iter(list_to_split)
     return iter(lambda: tuple(islice(it, chuck_size)), ())
